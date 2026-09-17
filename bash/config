@@ -39,6 +39,8 @@ case :$PATH: in
 esac
 unset opencode_bin
 
+export BITWARDENCLI_APPDATA_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/Bitwarden CLI"
+
 if [[ -x $HOME/.local/bin/mise ]]; then
   eval "$("$HOME/.local/bin/mise" activate bash)"
 fi
@@ -80,6 +82,8 @@ if command -v carapace >/dev/null 2>&1; then
 fi
 
 # Fish-style convenience functions.
+alias s='kitten ssh'
+
 alias pd='pandoc --defaults="${XDG_CONFIG_HOME:-$HOME/.config}/pandoc/config.yaml"'
 
 unalias ls ll lt man vi vim 2>/dev/null
