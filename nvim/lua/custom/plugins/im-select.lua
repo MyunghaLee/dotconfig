@@ -1,3 +1,8 @@
+local command = 'fcitx5-remote'
+if vim.fn.executable(command) ~= 1 then
+  return
+end
+
 vim.pack.add { 'https://github.com/keaising/im-select.nvim' }
 
 require('im_select').setup {
@@ -8,5 +13,5 @@ require('im_select').setup {
   -- #!/usr/bin/bash
   -- ibus engine $1
   default_im_select = 'keyboard-us', -- for fcitx5
-  default_command = 'fcitx5-remote',
+  default_command = command,
 }
