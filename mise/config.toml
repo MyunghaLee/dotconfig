@@ -1,0 +1,31 @@
+[tools]
+  bat = "latest"
+  bottom = "latest"          # btm
+  carapace = "latest"
+  delta = "latest"
+  dust = "latest"
+  eza = "latest"
+  fd = "latest"
+  fzf = "latest"
+  gh = "latest"
+  glow = "latest"
+  lazygit = "latest"
+  mosh = "latest"            # mosh, mosh-server
+  node = "latest"            # node, npm, npx
+  # 최신 Node에는 corepack이 포함되지 않을 수 있음
+  "npm:corepack" = "latest"
+  neovim = "latest"          # nvim
+  pandoc = "latest"
+  resvg = "latest"
+  ripgrep = "latest"         # rg
+  starship = "latest"
+  tealdeer = "latest"        # tldr
+  tree-sitter = "latest"
+  typst = "latest"
+  viddy = "latest"
+  yazi = "latest"            # yazi, ya
+  zellij = "latest"
+  zoxide = "latest"
+  "aqua:dalance/procs" = "latest"
+  "github:clangd/clangd" = "latest"
+  "github:atanunq/viu" = "latest"

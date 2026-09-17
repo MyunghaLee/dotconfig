@@ -1,0 +1,27 @@
+gui:
+  theme:
+    activeBorderColor:
+      - yellow
+      - bold
+    inactiveBorderColor:
+      - white
+    optionsTextColor:
+      - blue
+    selectedLineBgColor:
+      - reverse
+    selectedRangeBgColor:
+      - reverse
+    cherryPickedCommitFgColor:
+      - green
+    cherryPickedCommitBgColor:
+      - blue
+    markedBaseCommitFgColor:
+      - yellow
+    unstagedChangesColor:
+      - red
+    defaultFgColor:
+      - default
+git:
+  diffRenderers:
+    - colorArg: "always"
+      command: "delta --syntax-theme=ansi --true-color=never --minus-style=red --minus-emph-style='red bold' --plus-style=green --plus-emph-style='green bold' --zero-style=normal --hunk-header-style=cyan --file-style='blue bold' --paging=never"

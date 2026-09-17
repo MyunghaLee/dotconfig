@@ -1,0 +1,7 @@
+format = "$all"
+
+[env_var.YAZI_LEVEL]
+variable = "YAZI_LEVEL"
+format = "[$symbol]($style) "
+symbol = "📂 Yazi"
+style = "bold yellow"

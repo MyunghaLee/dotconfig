@@ -1,0 +1,36 @@
+# if ssh makes error, "infocmp -x | ssh <target> 'tic -x -'"
+
+command =  ~/.local/bin/fish
+
+font-family = JetBrainsMonoHangul Nerd Font
+font-size = 13
+# font-thicken = false
+# font-style = "Light"
+
+# theme = Adwaita Dark
+# theme = Dark Modern
+# theme = Monokai Pro
+theme = Gruvbox Dark
+
+window-width = 120
+window-height = 48
+
+# background = #0f0f0f
+# foreground = #f0f0f0
+# background-opacity = 0.9
+# background-blur = true
+# background-image = /home/fulmino/.local/share/icons/ghostty.png
+# background-image-opacity = 0.01
+
+clipboard-read = allow
+clipboard-write = allow
+copy-on-select = clipboard
+
+app-notifications = false
+
+keybind = ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+l=goto_split:right
+keybind = ctrl+shift+k=goto_split:up
+keybind = ctrl+shift+j=goto_split:down
+
+keybind = ctrl+v=paste_from_clipboard

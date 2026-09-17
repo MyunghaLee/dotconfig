@@ -1,0 +1,12 @@
+[[plugin.deps]]
+use = "Ape/smart-enter"
+rev = "1c835cc"
+hash = "d6d6fa001c2cda9dda6eb5bc6beb96b7"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "58c4f4e"
+hash = "5bb0bfab901d3601c370eafdd66edd31"
+
+[flavor]
+deps = []

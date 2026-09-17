@@ -1,0 +1,15 @@
+; [merge]
+; 	conflictStyle = zdiff3
+[user]
+	email = myhlee02@gmail.com
+	name = Myungha Lee
+[diff]
+	tool = delta
+[credential "https://github.com"]
+	helper = 
+	helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !gh auth git-credential
+[pull]
+	rebase = true

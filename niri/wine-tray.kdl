@@ -1,0 +1,12 @@
+// The XEmbed container supplies pixels to DMS; it has no desktop UI.
+window-rule {
+    match app-id="^wine-sni-bridge$"
+    open-floating true
+    open-focused false
+    default-floating-position x=0 y=0 relative-to="bottom-right"
+    opacity 0.0
+    border { off; }
+    focus-ring { off; }
+    shadow { off; }
+    background-effect { blur false; xray false; }
+}
