@@ -139,9 +139,9 @@ sshy() {
 
 zj() {
   if (($#)); then
-    command zellij attach --create "$@"
+    command zellij --config-dir ${XDG_CONFIG_HOME:-$HOME/.config}/zellij attach --create "$@"
   else
-    command zellij attach --create dev
+    command zellij --config-dir ${XDG_CONFIG_HOME:-$HOME/.config}/zellij attach --create dev
   fi
 }
 
