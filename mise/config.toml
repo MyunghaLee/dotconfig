@@ -1,4 +1,5 @@
 [tools]
+  atuin = "latest"
   bat = "latest"
   bottom = "latest"          # btm
   carapace = "latest"

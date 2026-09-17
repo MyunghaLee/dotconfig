@@ -14,9 +14,6 @@ curl -fsSL https://opencode.ai/install | bash
 # codex
 curl -fsSL https://chatgpt.com/codex/install.sh | sh
 
-# atuin
-curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
-
 # ble.sh
 curl -L https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly.tar.xz | tar xJf -
 bash ble-nightly/ble.sh --install "$tool_data_home"

@@ -10,11 +10,6 @@ elif [[ -x $HOME/.homebrew/bin/brew ]]; then
   eval "$("$HOME/.homebrew/bin/brew" shellenv)"
 fi
 
-# Atuin's installer places its PATH setup here instead of in .bashrc.
-if [[ -r $HOME/.atuin/bin/env ]]; then
-  source -- "$HOME/.atuin/bin/env"
-fi
-
 # Keep Codex configuration and local state under the XDG data directory.
 export CODEX_HOME="$XDG_DATA_HOME/codex"
 
