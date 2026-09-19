@@ -30,3 +30,7 @@
   "aqua:dalance/procs" = "latest"
   "github:clangd/clangd" = "latest"
   "github:atanunq/viu" = "latest"
+  bitwarden = "latest"       # bw
+  chezmoi = "latest"
+  codex = "latest"
+  opencode = "latest"

@@ -6,27 +6,11 @@ mkdir -p $tool_data_home
 mkdir -p $HOME/.local/bin
 
 # mise
-curl -fsSL https://mise.run/bash | sh
-
-# opencode
-curl -fsSL https://opencode.ai/install | bash
-
-# codex
-curl -fsSL https://chatgpt.com/codex/install.sh | sh
+curl -fsSL https://mise.jdx.dev/install.sh | MISE_INSTALL_HELP=0 sh
 
 # ble.sh
 curl -L https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly.tar.xz | tar xJf -
 bash ble-nightly/ble.sh --install "$tool_data_home"
-
-# chezmoi
-sh -c "$(curl -fsLS https://get.chezmoi.io)" -- -b "$HOME/.local/bin"
-
-# bitwarden
-mkdir -p ~/.local/bin
-curl -L "https://vault.bitwarden.com/download/?app=cli&platform=linux" -o /tmp/bw.zip
-unzip /tmp/bw.zip -d /tmp/bw
-install -m 0755 /tmp/bw/bw ~/.local/bin/bw
-rm -rf /tmp/bw /tmp/bw.zip
 
 # ----------------FOR PC-------------------
 
@@ -113,4 +97,3 @@ flatpak install -y flathub us.zoom.Zoom
 #
 # tailscale
 curl -fsSL https://tailscale.com/install.sh | sh
-
