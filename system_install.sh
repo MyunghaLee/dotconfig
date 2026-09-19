@@ -2,6 +2,7 @@ sudo apt install -y git git-crypt curl build-essential
 sudo apt install -y unzip
 sudo apt install -y ttf-mscorefonts-installer
 sudo apt install -y fonts-noto-cjk
+sudo apt install -y inkscape
 
 # ------------- FOR PC ----------------
 
