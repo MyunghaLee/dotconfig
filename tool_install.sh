@@ -93,6 +93,9 @@ flatpak install -y flathub com.usebottles.bottles
 # zoom
 flatpak install -y flathub us.zoom.Zoom
 
+# onlyoffice
+flatpak install -y flathub org.onlyoffice.desktopeditors
+
 # ----------- SUDO NEEDED -------------
 #
 # tailscale

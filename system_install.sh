@@ -1,8 +1,5 @@
-sudo apt install -y git git-crypt curl build-essential
-sudo apt install -y unzip
-sudo apt install -y ttf-mscorefonts-installer
-sudo apt install -y fonts-noto-cjk
-sudo apt install -y fonts-urw-base35
+sudo apt install -y git git-crypt curl build-essential unzip
+sudo apt install -y ttf-mscorefonts-installer fonts-noto-cjk fonts-urw-base35 fonts-liberation
 sudo apt install -y inkscape
 
 # ------------- FOR PC ----------------
@@ -18,3 +15,4 @@ sudo apt install -y wl-clipboard
 sudo apt install -y showtime
 sudo apt install -y flatpak && flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 sudo apt install -y gnome-software-plugin-flatpak
+sudo apt install -y libreoffice
