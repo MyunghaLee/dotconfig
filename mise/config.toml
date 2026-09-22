@@ -1,4 +1,5 @@
 [tools]
+  7zip = "latest"           # 7z
   atuin = "latest"
   bat = "latest"
   bottom = "latest"          # btm
