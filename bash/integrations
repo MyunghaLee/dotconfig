@@ -23,6 +23,11 @@ unset bash_editor_candidate bash_editor_path
 # unset bash_data_home
 
 # Shell integrations.
+if command -v fzf >/dev/null 2>&1; then
+  # Keep fzf's file picker, directory picker, and completion; leave Ctrl+R to Atuin.
+  FZF_CTRL_R_COMMAND= eval "$(fzf --bash)"
+fi
+
 if command -v atuin >/dev/null 2>&1; then
   eval "$(atuin init bash --disable-up-arrow)"
 fi

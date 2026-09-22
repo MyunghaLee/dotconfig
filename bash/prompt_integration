@@ -8,6 +8,16 @@
 # enable flyline 2>/dev/null || enable -f "$HOME/.local/lib/libflyline.so" flyline
 if [[ $- == *i* && -r $HOME/.local/lib/libflyline.so ]]; then
   enable -f "$HOME/.local/lib/libflyline.so" flyline
-  flyline key bind Ctrl+r 'always=runBashCommand(__atuin_widget_run)+submitOrNewline'
-fi
+  if declare -F fzf-file-widget >/dev/null; then
+    flyline_fzf_cd() {
+      local cmd
+      cmd=$(__fzf_cd__) && READLINE_LINE=$cmd READLINE_POINT=${#cmd}
+    }
 
+    flyline key bind Ctrl+t 'always=runBashCommand(fzf-file-widget)'
+    flyline key bind Alt+c 'always=runBashCommand(flyline_fzf_cd)+submitOrNewline'
+  fi
+  if declare -F __atuin_widget_run >/dev/null; then
+    flyline key bind Ctrl+r 'always=runBashCommand(__atuin_widget_run)+submitOrNewline'
+  fi
+fi
