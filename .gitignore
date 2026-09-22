@@ -27,6 +27,7 @@
 !/pandoc/**
 !/ripgrep/**
 !/ssh/**
+!/systemd/user/niri-wine-tray-focus.service
 !/tealdeer/**
 !/touchcursor/**
 !/wezterm/**
