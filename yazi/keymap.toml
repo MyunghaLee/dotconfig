@@ -1,8 +1,14 @@
 [[mgr.prepend_keymap]]
 on   = "!"
 for  = "unix"
-run  = 'shell "/usr/bin/bash" --block'
-desc = "Open Bash here"
+run  = "plugin kitty-shell -- shell"
+desc = "Open a Kitty shell here"
+
+[[mgr.prepend_keymap]]
+on   = ":"
+for  = "unix"
+run  = "plugin kitty-shell -- command"
+desc = "Run a command in a new Kitty window"
 
 [[input.prepend_keymap]]
 on   = "<Esc>"

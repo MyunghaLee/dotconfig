@@ -295,3 +295,9 @@ include optional=true "dms/cursor.kdl"
 include optional=true "dms/input.kdl"
 
 include "wine-tray.kdl"
+
+// Yazi's Kitty shell and command windows use separate app IDs.
+window-rule {
+    match app-id=r#"^kitty-yazi-(shell|command)$"#
+    open-floating true
+}
