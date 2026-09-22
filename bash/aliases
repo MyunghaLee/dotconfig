@@ -1,0 +1,8 @@
+# Command aliases.
+
+alias s='kitten ssh'
+
+alias pd='pandoc --defaults="${XDG_CONFIG_HOME:-$HOME/.config}/pandoc/config.yaml"'
+
+unalias ls ll lt man vi vim 2>/dev/null
+

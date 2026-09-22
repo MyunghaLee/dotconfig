@@ -5,10 +5,10 @@ bind 'set completion-ignore-case on'
 
 # Use ble.sh-aware integrations instead of fzf's generic Readline bindings.
 if command -v fzf >/dev/null 2>&1; then
-  ble-import integration/fzf-completion
-  ble-import integration/fzf-key-bindings
+  ble-import -d integration/fzf-completion
+  ble-import -d integration/fzf-key-bindings
 fi
 
 if command -v zoxide >/dev/null 2>&1; then
-  ble-import integration/zoxide
+  ble-import -d integration/zoxide
 fi

@@ -1,0 +1,12 @@
+# Prompt appearance.
+
+# left
+PS1='\[\e[1;36m\]\w\[\e[0m\] ❯ '
+# right
+RPS1='\[\e[2m\]\A\[\e[0m\]'
+# command 실행 후에는 간결하게
+PS1_FINAL='\[\e[2m\]❯\[\e[0m\] '
+RPS1_FINAL=''
+PS1_FILL_FINAL=''
+# prompt 사이 구분선 없이 깔끔하게
+PROMPT_RULER=''

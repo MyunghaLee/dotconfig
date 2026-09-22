@@ -1,0 +1,13 @@
+# Prompt tool integration.
+
+# if command -v starship >/dev/null 2>&1; then
+#   eval "$(starship init bash)"
+# fi
+
+# Flyline - enhanced Bash experience
+# enable flyline 2>/dev/null || enable -f "$HOME/.local/lib/libflyline.so" flyline
+if [[ $- == *i* && -r $HOME/.local/lib/libflyline.so ]]; then
+  enable -f "$HOME/.local/lib/libflyline.so" flyline
+  flyline key bind Ctrl+r 'always=runBashCommand(__atuin_widget_run)+submitOrNewline'
+fi
+

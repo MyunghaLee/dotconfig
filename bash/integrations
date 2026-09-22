@@ -1,0 +1,76 @@
+# Tool initialization and shell integrations.
+
+if [[ -x $HOME/.local/bin/mise ]]; then
+  eval "$("$HOME/.local/bin/mise" activate bash)"
+fi
+
+# Pick the first editor available on this machine.
+for bash_editor_candidate in nvim vim vi nano; do
+  if bash_editor_path=$(command -v "$bash_editor_candidate" 2>/dev/null); then
+    export EDITOR=$bash_editor_path
+    export SUDO_EDITOR=$bash_editor_path
+    break
+  fi
+done
+unset bash_editor_candidate bash_editor_path
+
+# Load ble.sh from the XDG data directory after PATH is ready, but attach only
+# after all integrations.
+# bash_data_home="$XDG_DATA_HOME"
+# if [[ $- == *i* && -r $bash_data_home/blesh/ble.sh ]]; then
+#   source -- "$bash_data_home/blesh/ble.sh" --attach=none
+# fi
+# unset bash_data_home
+
+# Shell integrations.
+if command -v atuin >/dev/null 2>&1; then
+  eval "$(atuin init bash --disable-up-arrow)"
+fi
+
+if command -v carapace >/dev/null 2>&1; then
+  export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
+  export CARAPACE_MATCH=1
+  source <(carapace _carapace)
+fi
+
+# Count commands across sessions and sync Atuin every 100 commands.
+if command -v atuin >/dev/null 2>&1 &&
+   declare -p preexec_functions precmd_functions >/dev/null 2>&1; then
+  bash_atuin_sync_counter_file="${XDG_CACHE_HOME:-$HOME/.cache}/atuin_sync_counter"
+
+  _bash_atuin_sync_on_100() {
+    local counter_file=$bash_atuin_sync_counter_file
+    local counter_dir=${counter_file%/*}
+    local current_count=0
+
+    command mkdir -p -- "$counter_dir"
+    {
+      command flock -x 9
+      [[ -r $counter_file ]] && IFS= read -r current_count < "$counter_file"
+      [[ $current_count =~ ^[0-9]+$ ]] || current_count=0
+
+      if ((++current_count >= 100)); then
+        printf '0\n' > "$counter_file"
+        printf '\e[33m󱍢 Reached 100 commands across all sessions. Syncing...\e[0m\n'
+        if command atuin sync; then
+          printf '\e[32m✔ Sync completed!\e[0m\n'
+        fi
+      else
+        printf '%d\n' "$current_count" > "$counter_file"
+      fi
+    } 9>"$counter_file.lock"
+  }
+
+  _bash_atuin_mark_command() {
+    _bash_atuin_command_pending=1
+  }
+
+  _bash_atuin_sync_after_command() {
+    [[ ${_bash_atuin_command_pending-} ]] || return 0
+    unset _bash_atuin_command_pending
+    _bash_atuin_sync_on_100
+  }
+
+  preexec_functions+=(_bash_atuin_mark_command)
+  precmd_functions+=(_bash_atuin_sync_after_command)
+fi

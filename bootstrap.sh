@@ -1,3 +1,8 @@
+# remove flyline-added lines of bashrc
+sed -i.bak '/flyline/Id' ~/.bashrc
+
+
+# XDG style config to bash
 cat <<'EOF' >> ~/.bashrc
 
 bash_config_file="${XDG_CONFIG_HOME:-$HOME/.config}/bash/config"
@@ -7,6 +12,7 @@ fi
 unset bash_config_file
 EOF
 
+# XDG style ssh config import
 mkdir -p ~/.ssh
 cat <<'EOF' >> ~/.ssh/config
 
@@ -14,7 +20,7 @@ Include ${XDG_CONFIG_HOME}/ssh/config
 EOF
 chmod 600 ~/.ssh/config
 
-# inside dotconfig
+# inside dotconfig directory
 key_path="${XDG_DATA_HOME:-$HOME/.local/share}/git-crypt/dotconfig.key"
 install -d -m 700 "$(dirname "$key_path")"
 (

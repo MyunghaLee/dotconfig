@@ -16,3 +16,4 @@ sudo apt install -y showtime
 sudo apt install -y flatpak && flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 sudo apt install -y gnome-software-plugin-flatpak
 sudo apt install -y libreoffice
+sudo apt install -y ddcutil

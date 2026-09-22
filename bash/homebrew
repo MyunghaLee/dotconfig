@@ -1,0 +1,6 @@
+# Homebrew (system-wide first, then the per-user fallback).
+if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+elif [[ -x $HOME/.homebrew/bin/brew ]]; then
+  eval "$("$HOME/.homebrew/bin/brew" shellenv)"
+fi

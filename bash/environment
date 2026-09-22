@@ -1,0 +1,36 @@
+# Environment and executable paths.
+
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+
+# Homebrew sets PATH before the user paths below are added.
+source -- "$bash_config_dir/homebrew"
+
+# Keep Codex configuration and local state under the XDG data directory.
+export CODEX_HOME="$XDG_DATA_HOME/codex"
+
+# User executables, TeX Live, and mise-managed tools.
+case :$PATH: in
+  *:"$HOME/.local/bin":*) ;;
+  *) export PATH="$HOME/.local/bin${PATH:+:$PATH}" ;;
+esac
+
+texlive_bin="$XDG_DATA_HOME/texlive/2026/bin/x86_64-linux"
+case :$PATH: in
+  *:"$texlive_bin":*) ;;
+  *) export PATH="$texlive_bin${PATH:+:$PATH}" ;;
+esac
+unset texlive_bin
+
+# opencode
+opencode_bin="$HOME/.opencode/bin"
+case :$PATH: in
+  *:"$opencode_bin":*) ;;
+  *) export PATH="$opencode_bin${PATH:+:$PATH}" ;;
+esac
+unset opencode_bin
+
+export BITWARDENCLI_APPDATA_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/Bitwarden CLI"
+
+export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/ripgrep/config"
+unset SSH_ASKPASS GIT_ASKPASS

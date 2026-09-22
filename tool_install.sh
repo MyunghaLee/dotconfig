@@ -9,8 +9,11 @@ mkdir -p $HOME/.local/bin
 curl -fsSL https://mise.jdx.dev/install.sh | MISE_INSTALL_HELP=0 sh
 
 # ble.sh
-curl -L https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly.tar.xz | tar xJf -
-bash ble-nightly/ble.sh --install "$tool_data_home"
+# curl -L https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly.tar.xz | tar xJf -
+# bash ble-nightly/ble.sh --install "$tool_data_home"
+
+# flyline
+curl -sSfL https://github.com/HalFrgrd/flyline/releases/latest/download/install.sh | bash
 
 # ----------------FOR PC-------------------
 

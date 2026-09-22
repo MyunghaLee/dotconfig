@@ -1,0 +1,79 @@
+# Convenience functions.
+
+ls() {
+  if command -v eza >/dev/null 2>&1; then
+    command eza --icons --git --color=always "$@"
+  else
+    command ls --color=auto "$@"
+  fi
+}
+
+ll() {
+  if command -v eza >/dev/null 2>&1; then
+    command eza -lah --icons --git "$@"
+  else
+    command ls --color=auto -l "$@"
+  fi
+}
+
+lt() {
+  if command -v eza >/dev/null 2>&1; then
+    command eza --tree --icons --level=2 "$@"
+  else
+    command tree -L 2 "$@"
+  fi
+}
+
+man() {
+  if command -v vim >/dev/null 2>&1; then
+    MANPAGER='vim -M +MANPAGER -' command man "$@"
+  else
+    command man "$@"
+  fi
+}
+
+if [[ -n ${EDITOR-} ]]; then
+  vi()  { command "$EDITOR" "$@"; }
+  vim() { command "$EDITOR" "$@"; }
+fi
+
+cf()    { command yazi "${XDG_CONFIG_HOME:-$HOME/.config}" "$@"; }
+rc()    { command "$EDITOR" "${XDG_CONFIG_HOME:-$HOME/.config}/bash/config" "$@"; }
+rcy()  { command yazi "${XDG_CONFIG_HOME:-$HOME/.config}/bash" "$@"; }
+sc()    { exec bash; }
+sshcf() { command "$EDITOR" "${XDG_CONFIG_HOME:-$HOME/.config}/ssh/config" "$@"; }
+tocu()  { command "$EDITOR" "${XDG_CONFIG_HOME:-$HOME/.config}/touchcursor/touchcursor.conf" "$@"; }
+
+oc()     { OPENCODE_ENABLE_EXA=true command opencode "$@"; }
+rb()     { command sudo reboot now "$@"; }
+rbtocu() { command systemctl --user restart touchcursor "$@"; }
+rbtw()   { command sudo grub2-reboot 4 && command sudo reboot now "$@"; }
+dbrb()   { command pkill -f dropbox; sleep 1; command dropbox start "$@"; }
+
+sshy() {
+  command ssh "$@" -t "bash -l -c 'fish -l -c y'"
+}
+
+zj() {
+  if (($#)); then
+    command zellij --config-dir ${XDG_CONFIG_HOME:-$HOME/.config}/zellij attach --create "$@"
+  else
+    command zellij --config-dir ${XDG_CONFIG_HOME:-$HOME/.config}/zellij attach --create dev
+  fi
+}
+
+y() {
+  local yazi_tmp yazi_cwd yazi_status
+  yazi_tmp=$(mktemp -t yazi-cwd.XXXXXX) || return
+  command yazi "$@" --cwd-file="$yazi_tmp"
+  yazi_status=$?
+
+  if yazi_cwd=$(command cat -- "$yazi_tmp") &&
+     [[ -n $yazi_cwd && $yazi_cwd != "$PWD" ]]; then
+    builtin cd -- "$yazi_cwd" || yazi_status=$?
+  fi
+
+  command rm -f -- "$yazi_tmp"
+  return "$yazi_status"
+}
+
