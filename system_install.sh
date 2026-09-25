@@ -1,6 +1,7 @@
 sudo apt install -y git git-crypt curl build-essential unzip
 sudo apt install -y ttf-mscorefonts-installer fonts-noto-cjk fonts-urw-base35 fonts-liberation
 sudo apt install -y inkscape
+sudo apt install -y net-tools
 
 # ------------- FOR PC ----------------
 

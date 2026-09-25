@@ -1,12 +1,1 @@
-[Unit]
-Description=Restore focus when Niri selects the invisible Wine tray bridge
-PartOf=graphical-session.target
-After=graphical-session.target
-
-[Service]
-ExecStart=/usr/bin/python3 %h/.config/niri/wine-tray-focus.py
-Restart=on-failure
-RestartSec=2
-
-[Install]
-WantedBy=graphical-session.target
+/home/fulmino/.local/share/kakaotalk-integration/systemd/user/niri-wine-tray-focus.service
