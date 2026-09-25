@@ -240,12 +240,9 @@ window-rule {
     match app-id=r#"^gnome-calculator$"#
     match app-id=r#"^galculator$"#
     match app-id=r#"^blueman-manager$"#
+    match app-id=r#"^org\.gnome\.Nautilus$"#
     match app-id=r#"^xdg-desktop-portal$"#
     open-floating true
-}
-window-rule {
-    match app-id=r#"^org\.gnome\.Nautilus$"#
-    open-floating false
 }
 window-rule {
     match app-id=r#"^steam$"# title=r#"^notificationtoasts_\d+_desktop$"#
@@ -264,6 +261,16 @@ window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     match app-id="zoom"
     open-floating true
+}
+window-rule {
+    match app-id=r#"^kakaotalk\.exe$"#
+    exclude title="^KakaoTalk$"
+    open-floating true
+}
+window-rule {
+    match app-id=r#"^kakaotalk\.exe$"# title="^KakaoTalk$"
+    default-column-width { proportion 0.3333333333333333; }
+    open-floating false
 }
 // Apply a subtle translucent xray blur to every window.
 window-rule {
@@ -296,5 +303,3 @@ include optional=true "dms/binds.kdl"
 include optional=true "dms/outputs.kdl"
 include optional=true "dms/cursor.kdl"
 include optional=true "dms/input.kdl"
-
-include "wine-tray.kdl"

@@ -1,8 +1,8 @@
 [[mgr.prepend_keymap]]
 on   = "!"
 for  = "unix"
-run  = 'shell "bash" --block'
-desc = "Open $SHELL here"
+run  = '''shell --block -- bash -c 'if [[ -n $1 ]]; then printf %%s "$1" | wl-copy; fi; export YAZI_SUBSHELL=1; exec bash' _ %h'''
+desc = "Copy hovered path and open Bash"
 
 [[input.prepend_keymap]]
 on   = "<Esc>"

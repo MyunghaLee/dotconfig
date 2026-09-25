@@ -10,3 +10,17 @@ RPS1_FINAL=''
 PS1_FILL_FINAL=''
 # prompt 사이 구분선 없이 깔끔하게
 PROMPT_RULER=''
+
+if [[ -n ${YAZI_SUBSHELL-} ]]; then
+  yazi_prompt_badge='\[\e[1;30;43m\] YAZI subshell (exit to return) \[\e[0m\] '
+  PS1="$yazi_prompt_badge$PS1"
+  PS1_FINAL="$yazi_prompt_badge$PS1_FINAL"
+  unset yazi_prompt_badge
+fi
+
+if [[ -n ${SSH_CONNECTION-}${SSH_CLIENT-}${SSH_TTY-} ]]; then
+  ssh_prompt_host='\[\e[1;33m\]\h\[\e[0m\] '
+  PS1="$ssh_prompt_host$PS1"
+  PS1_FINAL="$ssh_prompt_host$PS1_FINAL"
+  unset ssh_prompt_host
+fi

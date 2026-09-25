@@ -1,6 +1,7 @@
 # Command aliases.
 
 alias s='kitten ssh'
+alias cx='codex --yolo'
 
 alias pd='pandoc --defaults="${XDG_CONFIG_HOME:-$HOME/.config}/pandoc/config.yaml"'
 
