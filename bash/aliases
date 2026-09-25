@@ -1,6 +1,15 @@
 # Command aliases.
 
-alias s='kitten ssh'
+s() {
+  local ssh_alias
+  ssh_alias=$(command ssh -G "$@" 2>/dev/null | awk '$1 == "host" { print $2; exit }')
+  if [[ -n $ssh_alias ]]; then
+    SSH_PROMPT_HOST=$ssh_alias kitten ssh --kitten env=SSH_PROMPT_HOST=_kitty_copy_env_var_ "$@"
+  else
+    kitten ssh "$@"
+  fi
+}
+
 alias cx='codex --yolo'
 
 alias pd='pandoc --defaults="${XDG_CONFIG_HOME:-$HOME/.config}/pandoc/config.yaml"'

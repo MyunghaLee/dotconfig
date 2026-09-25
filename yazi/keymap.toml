@@ -1,7 +1,7 @@
 [[mgr.prepend_keymap]]
 on   = "!"
 for  = "unix"
-run  = '''shell --block -- bash -c 'if [[ -n $1 ]]; then printf %%s "$1" | wl-copy; fi; export YAZI_SUBSHELL=1; exec bash' _ %h'''
+run  = [ "copy path --hovered", "shell --block -- bash -c 'export YAZI_SUBSHELL=1; exec bash'" ]
 desc = "Copy hovered path and open Bash"
 
 [[input.prepend_keymap]]

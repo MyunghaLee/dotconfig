@@ -19,7 +19,7 @@ if [[ -n ${YAZI_SUBSHELL-} ]]; then
 fi
 
 if [[ -n ${SSH_CONNECTION-}${SSH_CLIENT-}${SSH_TTY-} ]]; then
-  ssh_prompt_host='\[\e[1;33m\]\h\[\e[0m\] '
+  ssh_prompt_host="\\[\\e[1;33m\\]${SSH_PROMPT_HOST:-\\h}\\[\\e[0m\\] "
   PS1="$ssh_prompt_host$PS1"
   PS1_FINAL="$ssh_prompt_host$PS1_FINAL"
   unset ssh_prompt_host
