@@ -1,7 +1,7 @@
-sudo apt install -y git git-crypt curl build-essential unzip
+sudo apt install -y git git-crypt curl build-essential unzip net-tools
 sudo apt install -y ttf-mscorefonts-installer fonts-noto-cjk fonts-urw-base35 fonts-liberation
 sudo apt install -y inkscape
-sudo apt install -y net-tools
+sudo apt install -y cargo
 
 # ------------- FOR PC ----------------
 
@@ -18,3 +18,5 @@ sudo apt install -y flatpak && flatpak remote-add --if-not-exists flathub https:
 sudo apt install -y gnome-software-plugin-flatpak
 sudo apt install -y libreoffice
 sudo apt install -y ddcutil
+sudo apt install -y gnome-calendar endeavour
+sudo apt install -y remmina

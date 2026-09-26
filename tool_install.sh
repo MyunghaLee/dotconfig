@@ -99,6 +99,15 @@ flatpak install -y flathub us.zoom.Zoom
 # onlyoffice
 flatpak install -y flathub org.onlyoffice.desktopeditors
 
+# discord
+flatpak install -y flathub com.discordapp.Discord
+
+# blanket
+flatpak install -y flathub com.rafaelmardojai.Blanket
+
+# remmina
+flatpak install -y flathub org.remmina.Remmina
+
 # ----------- SUDO NEEDED -------------
 #
 # tailscale

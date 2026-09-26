@@ -164,6 +164,7 @@ overview {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 // DMS is started by the enabled dms.service.
 spawn-at-startup "fcitx5" "-d"
+spawn-at-startup "/bin/sh" "-c" "if [ -x \"$HOME/.cargo/bin/nirinit\" ]; then exec \"$HOME/.cargo/bin/nirinit\" --save-interval 300; fi"
 
 environment {
   XDG_CURRENT_DESKTOP "niri"
@@ -259,8 +260,11 @@ window-rule {
 }
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    match app-id="zoom"
     open-floating true
+}
+window-rule {
+    match app-id="zoom"
+    open-floating false
 }
 window-rule {
     match app-id=r#"^kakaotalk\.exe$"#
