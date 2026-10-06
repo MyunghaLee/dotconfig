@@ -44,7 +44,7 @@ sc()    { exec bash; }
 sshcf() { command "$EDITOR" "${XDG_CONFIG_HOME:-$HOME/.config}/ssh/config" "$@"; }
 tocu()  { command "$EDITOR" "${XDG_CONFIG_HOME:-$HOME/.config}/touchcursor/touchcursor.conf" "$@"; }
 
-oc()     { OPENCODE_ENABLE_EXA=true command opencode "$@"; }
+oc()     { OPENCODE_ENABLE_EXA=true command opencode --auto "$@"; }
 rb()     { command sudo reboot now "$@"; }
 rbtocu() { command systemctl --user restart touchcursor "$@"; }
 rbtw()   { command sudo grub2-reboot 4 && command sudo reboot now "$@"; }

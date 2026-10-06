@@ -1,2 +1,9 @@
 set window-width 1600
 set window-height 1000
+
+# Keep selected text in PRIMARY until explicitly copied.
+set selection-clipboard primary
+map [normal] <C-c> exec "sh -c 'wl-paste --primary --no-newline | wl-copy'"
+map [normal] y exec "sh -c 'wl-paste --primary --no-newline | wl-copy'"
+map [fullscreen] <C-c> exec "sh -c 'wl-paste --primary --no-newline | wl-copy'"
+map [fullscreen] y exec "sh -c 'wl-paste --primary --no-newline | wl-copy'"
