@@ -20,3 +20,4 @@ sudo apt install -y libreoffice
 sudo apt install -y ddcutil
 sudo apt install -y gnome-calendar endeavour
 sudo apt install -y remmina
+sudo apt install -y zathura
