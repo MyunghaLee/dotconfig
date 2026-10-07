@@ -11,9 +11,14 @@
     "scrollbar": false,
     "thinking": "hide"
   },
+  "tabs": {
+    "mode": "off"
+  },
   "keybinds": {
     "session.first": "ctrl+g,alt+home,shift+pageup",
     "session.last": "ctrl+alt+g,shift+pagedown",
+    "session.line.up": "ctrl+up,ctrl+alt+y",
+    "session.line.down": "ctrl+down,ctrl+alt+e",
     "input.visual.line.home": "alt+a,home",
     "input.visual.line.end": "alt+e,end"
   },
