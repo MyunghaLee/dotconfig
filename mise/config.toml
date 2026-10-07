@@ -34,4 +34,5 @@
   bitwarden = "latest"       # bw
   chezmoi = "latest"
   codex = "latest"
-  opencode = "latest"
+  # opencode = "latest"
+  "npm:@opencode/cli" = { version = "latest", allow_builds = ["@opencode/cli"] }

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://opencode.ai/v2/cli.json",
+  "theme": {
+    "name": "system"
+  },
+  "diffs": {
+    "wrap": "word"
+  },
+  "session": {
+    "sidebar": "auto",
+    "scrollbar": false,
+    "thinking": "hide"
+  },
+  "keybinds": {
+    "session.first": "ctrl+g,alt+home,shift+pageup",
+    "session.last": "ctrl+alt+g,shift+pagedown",
+    "input.visual.line.home": "alt+a,home",
+    "input.visual.line.end": "alt+e,end"
+  },
+  "animations": true
+}
