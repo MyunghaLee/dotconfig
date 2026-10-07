@@ -2,5 +2,22 @@
   "$schema": "https://opencode.ai/config.json",
   "agent": {
   },
-  "autoupdate" : false
+  "autoupdate" : false,
+  "providers": {
+    "openai": {
+      "models": {
+        "gpt-6.1-sol": {
+          "limit": {
+            "context": 1050000,
+            "input": 520000
+          }
+        }
+      }
+    }
+  },
+  "compaction": {
+    "auto": true,
+    "keep": { "tokens": 15000 },
+    "buffer": 20000
+  }
 }
