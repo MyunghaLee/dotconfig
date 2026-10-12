@@ -9,7 +9,7 @@ sudo add-apt-repository ppa:avengemedia/danklinux
 sudo add-apt-repository ppa:avengemedia/dms
 sudo apt update
 sudo apt install -y gnome-tweaks
-sudo apt install -y nautilus-dropbox
+sudo apt install -y nautilus-dropbox python3-nautilus python3-gi
 sudo apt install -y niri dms
 sudo apt install -y fcitx5 fcitx5-hangul fcitx5-config-qt fcitx5-frontend-all
 sudo apt install -y wl-clipboard

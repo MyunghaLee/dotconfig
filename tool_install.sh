@@ -32,6 +32,11 @@ update-desktop-database "$tool_data_home/applications" 2>/dev/null || true
 # brave origin
 curl -fsS https://dl.brave.com/install.sh | FLAVOR=origin sh
 
+# nautilus extension
+git clone https://github.com/chr314/nautilus-copy-path.git
+cd nautilus-copy-path
+make install
+
 # zotero
 case "$(uname -m)" in
     x86_64|amd64) zotero_platform="linux-x86_64" ;;
