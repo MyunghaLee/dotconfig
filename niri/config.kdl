@@ -121,6 +121,14 @@ layout {
     // preset-window-heights { }
     // You can change the default width of the new windows.
     default-column-width { proportion 0.5; }
+    // New columns start in tabbed (stack) display, so opening new windows
+    // and stacking them with mod+[ shows them as tabs instead of splitting
+    // the column vertically. Press mod+w to toggle back to normal display.
+    default-column-display "tabbed"
+    // Keep single-window columns looking like normal windows.
+    tab-indicator {
+        hide-when-single-tab
+    }
     // If you leave the brackets empty, the windows themselves will decide their initial width.
     // default-column-width {}
     // By default focus ring and border are rendered as a solid background rectangle
@@ -307,3 +315,10 @@ include optional=true "dms/binds.kdl"
 include optional=true "dms/outputs.kdl"
 include optional=true "dms/cursor.kdl"
 include optional=true "dms/input.kdl"
+
+// Override the default mod+[ bind: consume into the column to the left, then
+// switch that column to tabbed display so it shows as a tab stack. This also
+// covers columns created before the default-column-display change above.
+binds {
+    Mod+BracketLeft repeat=false { spawn-sh "niri msg action consume-or-expel-window-left && niri msg action set-column-display tabbed"; }
+}
