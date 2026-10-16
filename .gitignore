@@ -25,6 +25,7 @@
 !/opencode/opencode.json
 !/opencode/tui.json
 !/opencode/cli.json
+!/opencode/plugins/ntfy-notify.ts
 !/pandoc/**
 !/ripgrep/**
 !/ssh/**
