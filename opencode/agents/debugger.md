@@ -2,7 +2,6 @@
 description: High-reasoning root-cause analyst. Use when a bug or failing test survived two fix attempts or the cause is unclear. Investigates with targeted reads and commands, then returns root cause, evidence, minimal fix, and verification. Never edits files.
 mode: subagent
 model: openai/gpt-6.1-sol#high
-steps: 12
 color: "#dc2626"
 permissions:
   - action: edit

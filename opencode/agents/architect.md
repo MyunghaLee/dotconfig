@@ -2,7 +2,6 @@
 description: High-reasoning architecture consultant. Use for new subsystem or module design, API or data-model changes across multiple files, migrations, and plans in unfamiliar codebases. Returns a decision and an implementation plan. Never edits files.
 mode: subagent
 model: openai/gpt-6.1-sol#high
-steps: 10
 color: "#7c3aed"
 permissions:
   - action: edit
