@@ -18,6 +18,6 @@ if [[ $- == *i* && -r $HOME/.local/lib/libflyline.so ]]; then
     flyline key bind Alt+c 'always=runBashCommand(flyline_fzf_cd)+submitOrNewline'
   fi
   if declare -F __atuin_widget_run >/dev/null; then
-    flyline key bind Ctrl+r 'always=runBashCommand(__atuin_widget_run)+submitOrNewline'
+    flyline key bind Ctrl+r 'always=runBashCommand(__atuin_widget_run)'
   fi
 fi
