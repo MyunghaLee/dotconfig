@@ -2,6 +2,7 @@ sudo apt install -y git git-crypt curl build-essential unzip net-tools
 sudo apt install -y ttf-mscorefonts-installer fonts-noto-cjk fonts-urw-base35 fonts-liberation
 sudo apt install -y inkscape
 sudo apt install -y cargo
+sudo apt install -y htop
 
 # ------------- FOR PC ----------------
 
