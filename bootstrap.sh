@@ -30,3 +30,7 @@ install -d -m 700 "$(dirname "$key_path")"
     base64 --decode > "$key_path"
 ) && git-crypt unlock "$key_path"
 rm "$key_path"
+
+# dux settings
+dms-greeter sync
+dms-greeter enable

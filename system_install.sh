@@ -23,3 +23,4 @@ sudo apt install -y gnome-calendar endeavour
 sudo apt install -y remmina
 sudo apt install -y zathura
 sudo apt install -y geary
+sudo apt install -y dankcalendar dux-files

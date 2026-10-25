@@ -15,6 +15,9 @@ curl -fsSL https://mise.jdx.dev/install.sh | MISE_INSTALL_HELP=0 sh
 # flyline
 curl -sSfL https://github.com/HalFrgrd/flyline/releases/latest/download/install.sh | bash
 
+# fresh
+curl -fsSL https://raw.githubusercontent.com/sinelaw/fresh/refs/heads/master/scripts/install.sh | sh
+
 # ----------------FOR PC-------------------
 
 # kitty
