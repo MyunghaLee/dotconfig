@@ -4,6 +4,7 @@
   bat = "latest"
   bottom = "latest"          # btm
   carapace = "latest"
+  "aqua:YS-L/csvlens" = "latest"   # csvlens
   delta = "latest"
   dust = "latest"
   eza = "latest"

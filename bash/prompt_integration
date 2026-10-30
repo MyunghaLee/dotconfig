@@ -8,16 +8,34 @@
 # enable flyline 2>/dev/null || enable -f "$HOME/.local/lib/libflyline.so" flyline
 if [[ $- == *i* && -r $HOME/.local/lib/libflyline.so ]]; then
   enable -f "$HOME/.local/lib/libflyline.so" flyline
+
   if declare -F fzf-file-widget >/dev/null; then
     flyline_fzf_cd() {
       local cmd
       cmd=$(__fzf_cd__) && READLINE_LINE=$cmd READLINE_POINT=${#cmd}
     }
-
     flyline key bind Ctrl+t 'always=runBashCommand(fzf-file-widget)'
     flyline key bind Alt+c 'always=runBashCommand(flyline_fzf_cd)+submitOrNewline'
   fi
+
   if declare -F __atuin_widget_run >/dev/null; then
     flyline key bind Ctrl+r 'always=runBashCommand(__atuin_widget_run)'
   fi
+
+  flyline_edit_command_line() {
+    local tmp editor
+    tmp=$(mktemp "${TMPDIR:-/tmp}/flyline-edit.XXXXXX") || return 1
+    printf '%s\n' "$READLINE_LINE" >|"$tmp"
+    editor=${VISUAL:-${EDITOR:-vi}}
+    if ! "$editor" "$tmp" </dev/tty >/dev/tty; then
+      rm -f -- "$tmp"
+      return 1
+    fi
+    READLINE_LINE=$(<"$tmp")
+    READLINE_POINT=${#READLINE_LINE}
+    READLINE_MARK=$READLINE_POINT
+    rm -f -- "$tmp"
+  }
+  flyline key bind Ctrl+e 'always=runBashCommand(flyline_edit_command_line)'
 fi
+

@@ -3,6 +3,7 @@ sudo apt install -y ttf-mscorefonts-installer fonts-noto-cjk fonts-urw-base35 fo
 sudo apt install -y inkscape
 sudo apt install -y cargo
 sudo apt install -y htop
+sudo apt install -y libimage-exiftool-perl
 
 # ------------- FOR PC ----------------
 

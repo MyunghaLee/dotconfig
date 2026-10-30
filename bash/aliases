@@ -16,3 +16,11 @@ alias pd='pandoc --defaults="${XDG_CONFIG_HOME:-$HOME/.config}/pandoc/config.yam
 
 unalias ls ll lt man vi vim 2>/dev/null
 
+# ArtCraft agent launchers: open the app with its control port so an MCP
+# client can attach. Extra arguments are passed through, e.g.
+#   deckcraft-mcp my-deck.pptx
+alias deckcraft-mcp='deckcraft --control 7990'
+alias gridcraft-mcp='gridcraft --control 7991'
+alias wordcraft-mcp='wordcraft --control 7992'
+alias vectorcraft-mcp='vectorcraft --control 7993'
+

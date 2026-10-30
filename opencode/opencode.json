@@ -17,5 +17,52 @@
     "auto": true,
     "keep": { "tokens": 15000 },
     "buffer": 20000
+  },
+  "mcp": {
+    "servers": {
+      "deckcraft": {
+        "type": "local",
+        "command": [
+          "deckcraft-cli",
+          "mcp",
+          "--connect",
+          "127.0.0.1:7990"
+        ]
+      },
+      "vectorcraft": {
+        "type": "local",
+        "command": [
+          "vectorcraft-cli",
+          "mcp",
+          "--connect",
+          "127.0.0.1:7993"
+        ]
+      },
+      "gridcraft": {
+        "type": "local",
+        "command": [
+          "gridcraft-cli",
+          "mcp",
+          "--connect",
+          "127.0.0.1:7991"
+        ]
+      },
+      "pdfcraft": {
+        "type": "local",
+        "command": [
+          "pdfcraft-cli",
+          "mcp"
+        ]
+      },
+      "wordcraft": {
+        "type": "local",
+        "command": [
+          "wordcraft-cli",
+          "mcp",
+          "--connect",
+          "127.0.0.1:7992"
+        ]
+      }
+    }
   }
 }
