@@ -460,6 +460,42 @@ do
   vim.opt.termguicolors = false
   vim.cmd.colorscheme 'pixel'
 
+  -- pixel.nvim draws secondary text with ANSI 8, which DMS keeps dark because it
+  -- is also the surface color. kitty.conf has two greys instead: color242 (mid,
+  -- chrome and hints) and color245 (light, text that must stay readable).
+  local function paint(groups, color)
+    for _, group in ipairs(groups) do
+      local hl = vim.api.nvim_get_hl(0, { name = group })
+      hl.ctermfg = color
+      vim.api.nvim_set_hl(0, group, hl)
+    end
+  end
+
+  paint({
+    'Comment', '@comment', '@comment.documentation', '@lsp.type.comment',
+    'CommentNormal', 'CommentBold', 'CommentItalic', 'CommentUnderline', 'CommentStrikethrough',
+    'markdownHTMLComment', '@text.todo', 'WhichKeyBuffer', 'WhichKeyWindow',
+    'MiniStatuslineInactive', 'MiniStatuslineDevinfo',
+  }, 245)
+
+  paint({
+    'LineNr', 'FoldColumn', 'Delimiter', 'Folded', 'StatusLineNC', 'TabLine', 'TabLineFill',
+    'LspCodeLens', 'LspInlayHint', 'GitSignsCurrentLineBlame',
+    'markdownBlockquote', 'markdownBlockquoteDelimiter', 'markdownYAMLHeader', '@markup.quote.markdown',
+    'WhichKeySeparator', 'WhichKeySeperator', 'SnacksDashboardFooter',
+  }, 242)
+
+  -- Comments stay italic.
+  for _, group in ipairs { 'Comment', '@comment', '@comment.documentation', '@lsp.type.comment' } do
+    local hl = vim.api.nvim_get_hl(0, { name = group })
+    hl.cterm = hl.cterm or {}
+    hl.cterm.italic = true
+    vim.api.nvim_set_hl(0, group, hl)
+  end
+
+  -- Visual selection: keep the lighter grey now that ANSI 8 is a surface again.
+  vim.api.nvim_set_hl(0, 'Visual', { ctermbg = 245, ctermfg = 0 })
+
   -- Highlight todo, notes, etc in comments
   vim.pack.add { gh 'folke/todo-comments.nvim' }
   require('todo-comments').setup { signs = false }

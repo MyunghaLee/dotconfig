@@ -25,8 +25,8 @@ lt() {
 }
 
 man() {
-  if command -v vim >/dev/null 2>&1; then
-    MANPAGER='vim -M +MANPAGER -' command man "$@"
+  if command -v nvim >/dev/null 2>&1; then
+    MANPAGER='nvim +Man!' command man "$@"
   else
     command man "$@"
   fi
