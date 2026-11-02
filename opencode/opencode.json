@@ -7,7 +7,7 @@
         "gpt-6.1-sol": {
           "limit": {
             "context": 1050000,
-            "input": 520000
+            "input": 250000
           }
         }
       }
@@ -64,5 +64,8 @@
         ]
       }
     }
-  }
+  },
+  "plugins": [
+    "@dietrichgebert/ponytail"
+  ]
 }
