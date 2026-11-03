@@ -25,6 +25,8 @@
     "input.visual.line.end": "end,alt+e",
     "vim.normal": {
       "leader": "space",
+      "session.first": "gg",
+      "session.last": "shift+g",
       "session.copy_mode": "<leader>v"
     }
   },
