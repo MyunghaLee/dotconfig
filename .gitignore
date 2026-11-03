@@ -29,6 +29,12 @@
 !/opencode/AGENTS.md
 !/opencode/agents/**
 !/opencode/plugins/ntfy-notify.ts
+!/ocv/opencode.json
+!/ocv/tui.json
+!/ocv/cli.json
+!/ocv/AGENTS.md
+!/ocv/agents/**
+!/ocv/plugins/ntfy-notify.ts
 !/pandoc/**
 !/ripgrep/**
 !/ssh/**

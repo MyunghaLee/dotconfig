@@ -1,0 +1,28 @@
+{
+  "$schema": "https://opencode.ai/v2/cli.json",
+  "theme": {
+    "name": "system"
+  },
+  "diffs": {
+    "wrap": "word"
+  },
+  "session": {
+    "sidebar": "auto",
+    "scrollbar": false,
+    "thinking": "hide"
+  },
+  "tabs": {
+    "mode": "off"
+  },
+  "vim_system_clipboard_register": true,
+  "keybinds": {
+    "leader": "ctrl+x",
+    "app.exit": "ctrl+c,<leader>q",
+    "session.half.page.down": "ctrl+d,ctrl+alt+d",
+    "vim.normal": {
+      "leader": "space",
+      "session.copy_mode": "<leader>v"
+    }
+  },
+  "animations": true
+}

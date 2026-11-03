@@ -67,5 +67,8 @@
   },
   "plugins": [
     "@dietrichgebert/ponytail"
+  ],
+  "skills": [
+    "{env:XDG_DATA_HOME}/doca-skills/skills"
   ]
 }

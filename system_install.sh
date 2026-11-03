@@ -4,6 +4,7 @@ sudo apt install -y inkscape
 sudo apt install -y cargo
 sudo apt install -y htop
 sudo apt install -y libimage-exiftool-perl
+sudo apt install -y distrobox
 
 # ------------- FOR PC ----------------
 

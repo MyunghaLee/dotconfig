@@ -37,3 +37,9 @@
   codex = "latest"
   # opencode = "latest"
   "npm:@opencode/cli" = { version = "latest", allow_builds = ["@opencode/cli"] }
+  # opencode-vim v2 (ocv)
+  "npm:@leohenon/ocv" = "ocv-v2"
+
+[settings.npm]
+# aube 설치기가 이 패키지에서 실패해서 npm으로 고정
+package_manager = "npm"
