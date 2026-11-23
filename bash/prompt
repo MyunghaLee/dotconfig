@@ -3,7 +3,8 @@
 # left
 PS1='\[\e[1;36m\]\w\[\e[0m\] ❯ '
 # right
-RPS1='\[\e[2m\]\A\[\e[0m\]'
+# RPS1='\[\e[2m\]\A\[\e[0m\]'
+RPS1=''
 # command 실행 후에는 간결하게
 PS1_FINAL='\[\e[2m\]❯\[\e[0m\] '
 RPS1_FINAL=''
