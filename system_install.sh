@@ -5,12 +5,15 @@ sudo apt install -y cargo
 sudo apt install -y htop
 sudo apt install -y libimage-exiftool-perl
 sudo apt install -y distrobox
+sudo apt install -y r-base r-cran-ggplot2 r-cran-svglite
 
 # ------------- FOR PC ----------------
 
 sudo add-apt-repository ppa:avengemedia/danklinux
 sudo add-apt-repository ppa:avengemedia/dms
+curl -s https://repo.waydro.id | sudo bash
 sudo apt update
+sudo apt install -y waydroid bindfs
 sudo apt install -y gnome-tweaks
 sudo apt install -y nautilus-dropbox python3-nautilus python3-gi
 sudo apt install -y niri dms

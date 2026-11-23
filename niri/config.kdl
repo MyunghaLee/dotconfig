@@ -126,8 +126,19 @@ layout {
     // the column vertically. Press mod+w to toggle back to normal display.
     default-column-display "tabbed"
     // Keep single-window columns looking like normal windows.
+    // Tabs are drawn as separate rounded "card edges" along the top,
+    // so a stacked column reads as several windows at a glance.
     tab-indicator {
         hide-when-single-tab
+        position "top"
+        place-within-column
+        width 14
+        gap 4
+        length total-proportion=1.0
+        gaps-between-tabs 3
+        corner-radius 6
+        active-color "#d8d8d8"
+        inactive-color "#4a4a4a"
     }
     // If you leave the brackets empty, the windows themselves will decide their initial width.
     // default-column-width {}
@@ -283,6 +294,11 @@ window-rule {
     match app-id=r#"^kakaotalk\.exe$"# title="^KakaoTalk$"
     default-column-width { proportion 0.3333333333333333; }
     open-floating false
+}
+// Waydroid asks for a maximized window on open; ignore it so it tiles normally.
+window-rule {
+    match app-id=r#"^waydroid\."#
+    open-maximized-to-edges false
 }
 // Apply a subtle translucent xray blur to every window.
 window-rule {

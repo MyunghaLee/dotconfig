@@ -117,6 +117,38 @@ flatpak install -y flathub com.rafaelmardojai.Blanket
 flatpak install -y flathub org.remmina.Remmina
 
 # ----------- SUDO NEEDED -------------
-#
+
 # tailscale
 curl -fsSL https://tailscale.com/install.sh | sh
+
+# hwp
+curl -H "Host: cdn.hancom.com" -H "Referer: https://www.hancom.com/cs_center" -fLO https://cdn.hancom.com/pds/hnc/DOWN/gooroom/hoffice_hwp_2020_amd64.deb
+sudo apt install ./hoffice_hwp_2020_amd64.deb
+
+# kakaotalk-waydroid
+sudo modprobe binder_linux
+sudo mkdir -p /dev/binderfs
+sudo mount -t binder binder /dev/binderfs
+echo "binder_linux" | sudo tee /etc/modules-load.d/waydroid.conf
+sudo waydroid init -s GAPPS
+sudo systemctl enable --now waydroid-container
+waydroid session start
+# on a different terminal
+waydroid show-full-ui # and then open play store inside the GUI.
+# on a different terminal
+sudo waydroid shell
+sqlite3 /data/data/com.google.android.gsf/databases/gservices.db "select * from main where name = \"android_id\";" # and register the number to https://www.google.com/android/uncertified .
+# inside the GUI clear google play services and store app's storage and cache.
+waydroid session stop
+waydroid session start
+waydroid show-full-ui # and then log into play store inside the GUI.
+git clone https://github.com/casualsnek/waydroid_script.git && cd waydroid_script
+python3 -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+sudo venv/bin/python3 main.py # select Android 13 -> Install -> libhoudini
+waydroid session stop
+sudo systemctl restart waydroid-container
+# after some seconds of sleep..
+waydroid session start
+waydroid show-full-ui # and then install KakaoTalk and Gboard.
+# https://saturn.tistory.com/entry/%EB%A6%AC%EB%88%85%EC%8A%A4%EC%97%90%EC%84%9C-%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1-%EC%93%B0%EA%B8%B0-Wine-%EB%A7%90%EA%B3%A0-Waydroid%EB%A1%9C-UbuntuKubuntu-2510
